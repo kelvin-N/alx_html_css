@@ -1,0 +1,39 @@
+/* styles.css */
+
+/* Make body a flex container with vertical layout */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* ensures body fills the viewport */
+}
+
+/* Main contains article + aside in a row */
+main {
+    display: flex;
+    flex-direction: row;
+    flex: auto; /* allows it to expand automatically */
+}
+
+/* Article takes 2/3 of the width */
+article {
+    flex: 2;
+    padding: 15px;
+    overflow-y: auto; /* allows scrolling */
+    background: #ffffff;
+}
+
+/* Aside takes 1/3 of the width */
+aside {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto; /* allows scrolling */
+    background: #f0f0f0;
+}
+
+/* Header & Footer styling */
+header, footer {
+    background: #222;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
