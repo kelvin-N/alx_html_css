@@ -173,3 +173,57 @@ footer .socials a {
   text-decoration: none;
   font-weight: 500;
 }
+
+/* ===== VIDEOS SECTION ===== */
+.videos {
+  padding: 80px 20px;
+  background-color: #fff;
+}
+
+.videos h2 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.video-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.video-item {
+  background: #fafafa;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.video-item:hover {
+  transform: translateY(-5px);
+}
+
+.video-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video-content {
+  padding: 15px;
+}
+
+.video-content h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.video-content p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+}
+
