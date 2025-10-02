@@ -1,21 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechCon - Advanced CSS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
 <body>
+
+  <!-- ===== HEADER ===== -->
   <header>
-    <div class="logo">★</div>
+    <div class="logo">
+      <img src="images/logo.png" alt="TechCon Logo">
+    </div>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#banner">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Projects</a></li>
+        <li><a href="#quote">Quote</a></li>
+        <li><a href="#footer">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="banner">
-    <div class="banner-content">
-      <h1>Welcome to My Portfolio</h1>
-      <p>A showcase of my work and learning journey</p>
-      <a href="#projects" class="btn">View Projects</a>
+  <!-- ===== BANNER ===== -->
+  <section id="banner" class="banner">
+    <div class="banner-text">
+      <h1>Innovate. Build. Scale.</h1>
+      <p>Join us at TechCon to explore the future of technology and design.</p>
+      <a href="#services" class="btn">Get Started</a>
     </div>
   </section>
+
+  <!-- ===== QUOTE ===== -->
+  <section id="quote" class="quote">
+    <blockquote>
+      "Design is not just what it looks like and feels like. Design is how it works."
+    </blockquote>
+    <cite>- Steve Jobs</cite>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" class="services">
+    <div class="service">
+      <img src="images/icon1.png" alt="Service 1">
+      <h3>Fast Performance</h3>
+      <p>Experience blazing speed with optimized code and design.</p>
+    </div>
+    <div class="service">
+      <img src="images/icon2.png" alt="Service 2">
+      <h3>Responsive Design</h3>
+      <p>Enjoy seamless browsing across all devices and screen sizes.</p>
+    </div>
+    <div class="service">
+      <img src="images/icon3.png" alt="Service 3">
+      <h3>Secure Platform</h3>
+      <p>Built with security in mind to protect your data.</p>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section id="gallery" class="gallery">
+    <h2>Our Projects</h2>
+    <div class="gallery-grid">
+      <img src="images/project1.jpg" alt="Project 1">
+      <img src="images/project2.jpg" alt="Project 2">
+      <img src="images/project3.jpg" alt="Project 3">
+      <img src="images/project4.jpg" alt="Project 4">
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <p>&copy; 2024 TechCon. All Rights Reserved.</p>
+    <ul class="socials">
+      <li><a href="#">Twitter</a></li>
+      <li><a href="#">LinkedIn</a></li>
+      <li><a href="#">GitHub</a></li>
+    </ul>
+  </footer>
+
 </body>
+</html>
