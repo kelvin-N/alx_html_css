@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- important for mobile -->
   <title>My First Portfolio</title>
   <link href="base.css" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
 </head>
-
-<body>
+<body class="works_on_smartphone">
 
   <header>
-    <ul>
-      <li><a href="html_basic/index.html">Home</a></li>
-      <li><a href="html_basic/tweets.html">My Tweets</a></li>
-    </ul>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tweets.html">My Tweets</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
@@ -31,48 +32,14 @@
 
       <p>This is the fourth paragraph. The portfolio will grow over time, but for now, it’s a simple demonstration to show progress in web development skills.</p>
 
-      <!-- Clickable image: clicking the image opens GitHub repo in a new tab -->
-      <p>
-        <a class="image-link" href="https://github.com/Kelvin-N/my_first_portfolio" target="_blank" rel="noopener noreferrer">
-          <img src="https://i.ibb.co/gTDZZT8/ALX-Logo-07.png" alt="Portfolio Logo">
-        </a>
-        <small>Click the image to view the My First Portfolio repository on GitHub.</small>
-      </p>
-
-      <!-- Learners Table -->
       <section>
-        <h2>Learners Information</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Age</th>
-              <th>Country</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>John</td>
-              <td>25</td>
-              <td>USA</td>
-            </tr>
-            <tr>
-              <td>Emily</td>
-              <td>28</td>
-              <td>Canada</td>
-            </tr>
-            <tr>
-              <td>Michael</td>
-              <td>32</td>
-              <td>Australia</td>
-            </tr>
-            <tr>
-              <td>Sophia</td>
-              <td>21</td>
-              <td>UK</td>
-            </tr>
-          </tbody>
-        </table>
+        <h2>Latest Tweet</h2>
+        <blockquote class="twitter-tweet">
+          <p lang="en" dir="ltr">Just setting up my Twitter. #myfirstTweet</p>
+          &mdash; Twitter (@Twitter)
+          <a href="https://twitter.com/Twitter/status/20?ref_src=twsrc%5Etfw">March 21, 2006</a>
+        </blockquote>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
       </section>
     </article>
 
@@ -82,8 +49,7 @@
   </main>
 
   <footer>
-    Made by Kelvin Nyangamangu - 
-    <a href="https://github.com/kelvin-N" target="_blank" rel="noopener noreferrer">here</a>
+    Made by Kelvin Nyangamangu - <a href="https://github.com/kelvin-N" target="_blank" rel="noopener noreferrer">here</a>.
   </footer>
 
 </body>
