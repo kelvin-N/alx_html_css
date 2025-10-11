@@ -1,0 +1,276 @@
+/* RESET CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* VARIABLES */
+:root {
+  --main-color: #FF6565;
+  --text-color: #fff;
+  --bg-color: #1c1c1c;
+  --max-width: 1000px;
+  --font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* GENERAL STYLES */
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+/* NAVBAR */
+.header {
+  background: url("headphones_hero_1.jpg") no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+/* WHAT WE DO SECTION */
+.what-we-do {
+  background-color: #fff;
+  color: #333;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.what-we-do h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.what-we-do .intro-text {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* SERVICE CARDS */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.service .icon {
+  font-size: 60px;
+  color: #FF6565;
+  margin-bottom: 15px;
+}
+
+.service h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.service p {
+  color: #777;
+  font-size: 16px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .what-we-do h2 {
+    font-size: 28px;
+  }
+  .what-we-do .intro-text {
+    font-size: 16px;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.logo {
+  width: 150px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:active {
+  color: var(--main-color);
+}
+
+/* HERO SECTION */
+.hero {
+  margin-top: 120px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.cta-btn {
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.cta-btn:hover,
+.cta-btn:active {
+  opacity: 0.9;
+}
+/* Our Results Section */
+.results {
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.results .container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.results h2 {
+  font-size: 2rem;
+  color: #071629;
+  margin-bottom: 20px;
+}
+
+.results p {
+  color: #555;
+  margin-bottom: 50px;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid #FF6565;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+
+.circle h3 {
+  color: #071629;
+  font-size: 1.8rem;
+}
+
+.stat-item p {
+  font-weight: bold;
+  color: #071629;
+}
+
+/* Responsive design for mobile */
+@media screen and (max-width: 480px) {
+  .stats {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+/* FOOTER */
+.footer {
+  background-color: #071629;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  flex-wrap: wrap;
+}
+
+.footer-logo img {
+  height: 40px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-socials a {
+  color: #fff;
+  font-size: 24px;
+  transition: opacity 0.3s ease;
+}
+
+.footer-socials a:hover {
+  opacity: 0.7;
+}
+
+.footer-text {
+  font-size: 14px;
+  color: #fff;
+  opacity: 0.7;
+}
+
+/* RESPONSIVE FOOTER */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-logo img {
+    height: 36px;
+  }
+
+  .footer-socials a {
+    font-size: 22px;
+  }
+}
