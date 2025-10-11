@@ -1,0 +1,182 @@
+/* 6-styles.css
+   Our Results: CSS-drawn pentagons (no image files).
+   Uses clip-path polygon to draw pentagon shapes,
+   and centers content with flexbox.
+*/
+
+/* Basic reset + variables */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --bg: #ffffff;
+  --page-bg: #f7f8fa;
+  --text: #071629;
+  --accent: #FF6565;
+  --muted: #667085;
+  --max-width: 1000px;
+  --font-sans: "Source Sans 3", "Source Sans Pro", Arial, sans-serif;
+}
+
+body{
+  font-family: var(--font-sans);
+  background: var(--page-bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* GENERAL LAYOUT */
+.container{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.site-header {
+  background: transparent;
+  padding: 20px 0;
+}
+.site-header .container{ display:flex; justify-content:space-between; align-items:center; }
+.logo { font-weight:700; letter-spacing:0.5px; }
+
+.nav a{
+  color: var(--text);
+  text-decoration:none;
+  margin-left:18px;
+  font-weight:600;
+  transition: color .15s ease;
+}
+.nav a:hover, .nav a:active{ color: var(--accent); }
+
+/* HERO */
+.hero{
+  padding: 60px 0;
+  text-align:center;
+  background: linear-gradient(180deg, rgba(255,101,101,0.06), transparent 40%);
+}
+.hero h1{ font-size:32px; margin-bottom:8px; }
+.hero p{ color:var(--muted); }
+
+/* SECTION BASE */
+.section{
+  padding: 60px 0;
+  background: var(--bg);
+}
+
+/* OUR RESULTS SECTION */
+.our-results .intro{
+  max-width:720px;
+  margin: 0 auto 36px;
+  color: var(--muted);
+  text-align:center;
+  font-size:16px;
+}
+
+/* Grid for the result cards */
+.results-grid{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 28px;
+  align-items: start;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+/* Each result wrapper (keeps label spacing) */
+.result{ width:100%; display:flex; justify-content:center; }
+
+/* PENTAGON - core shape using clip-path */
+.pentagon{
+  width: 140px;
+  height: 140px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  clip-path: polygon(
+    50% 0%,
+    95% 35%,
+    77% 100%,
+    23% 100%,
+    5% 35%
+  );
+  /* soft shadow / subtle depth */
+  box-shadow: 0 8px 20px rgba(7,22,41,0.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+  position: relative;
+  overflow: visible;
+}
+
+/* Inner panel so text sits nicely centered and readable */
+.pentagon-inner{
+  width: 86%;
+  height: 86%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0));
+  text-align:center;
+  color: white;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+/* Values (big number) and label */
+.value{
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom:6px;
+}
+.label{
+  font-size: 13px;
+  color: rgba(255,255,255,0.92);
+  font-weight:600;
+  letter-spacing:0.3px;
+}
+
+/* Individual accent colors (keeps variety) */
+.pentagon-1{ background: linear-gradient(180deg, #FF8A8A 0%, #FF6565 100%); }
+.pentagon-2{ background: linear-gradient(180deg, #8AE3FF 0%, #3ECFF0 100%); color:#071629; }
+.pentagon-3{ background: linear-gradient(180deg, #9AFFC3 0%, #4BE08F 100%); color:#071629; }
+.pentagon-4{ background: linear-gradient(180deg, #FFD58A 0%, #FFB54D 100%); color:#071629; }
+.pentagon-5{ background: linear-gradient(180deg, #C58AFF 0%, #8F5BFF 100%); }
+
+/* Slight hover lift for interactivity */
+.pentagon:hover{
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 18px 30px rgba(7,22,41,0.14);
+}
+
+/* Provide a subtle border/outline via pseudo-element (keeps pentagon crisp) */
+.pentagon::after{
+  content: "";
+  position:absolute;
+  inset: 0;
+  clip-path: inherit;
+  border-radius: 6px;
+  pointer-events:none;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+/* RESPONSIVE — adapt to smaller screens:
+   collapse grid and scale pentagons down */
+@media (max-width: 980px){
+  .results-grid{ grid-template-columns: repeat(3, 1fr); gap: 20px; }
+}
+
+@media (max-width: 640px){
+  .results-grid{ grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .pentagon{ width:120px; height:120px; }
+  .value{ font-size:20px; }
+}
+
+@media (max-width: 480px){
+  .results-grid{ grid-template-columns: 1fr; gap: 16px; }
+  .pentagon{ width: 100px; height:100px; }
+  .hero h1{ font-size:22px; }
+  .value{ font-size:18px; }
+  .label{ font-size:12px; }
+  .section{ padding: 36px 0; }
+}
+
+/* Small tweak: center footer container */
+.site-footer{ background:transparent; padding:30px 0; text-align:center; color:var(--muted); }
