@@ -1,105 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Headphones – Animated Sections</title>
-  <link rel="stylesheet" href="7-styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Headphones | Animated Version</title>
+  <link rel="stylesheet" href="7-styles.css">
 </head>
-
 <body>
+
+  <!-- ===== HEADER ===== -->
   <header class="header">
     <div class="container">
       <h1 class="logo">Headphones</h1>
-      <nav class="nav">
-        <a href="#what-we-do">What we do</a>
-        <a href="#our-results">Our results</a>
-        <a href="#contact">Contact</a>
+      <nav>
+        <a href="#">What we do</a>
+        <a href="#">Our results</a>
+        <a href="#">Contact</a>
       </nav>
+    </div>
+    <div class="hero">
+      <h2>Headphones for the modern world</h2>
+      <p>Experience sound like never before</p>
+      <button class="btn">CALL TO ACTION</button>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h2>Feel the Sound Like Never Before</h2>
-        <p>Pure, powerful, and immersive. Headphones that move you.</p>
-      </div>
-    </section>
-
-    <!-- WHAT WE DO -->
-    <section id="what-we-do" class="section what-we-do">
-      <div class="container">
-        <h2>What we do...</h2>
-        <div class="services">
-          <div class="service-card fade-in">
-            <div class="icon 🎧"></div>
-            <h3>High Fidelity Audio</h3>
-            <p>Delivering unmatched clarity and precision for music enthusiasts.</p>
-          </div>
-
-          <div class="service-card fade-in">
-            <div class="icon ⚡"></div>
-            <h3>Fast Charging</h3>
-            <p>Enjoy hours of playback after just a few minutes of charging.</p>
-          </div>
-
-          <div class="service-card fade-in">
-            <div class="icon 🌍"></div>
-            <h3>Global Reach</h3>
-            <p>Our products are trusted in over 50 countries worldwide.</p>
-          </div>
-
-          <div class="service-card fade-in">
-            <div class="icon 🎶"></div>
-            <h3>Custom Tuning</h3>
-            <p>Tailored audio profiles for every genre and mood.</p>
-          </div>
+  <!-- ===== WHAT WE DO ===== -->
+  <section class="what-we-do">
+    <div class="container">
+      <h2>What we do...</h2>
+      <div class="features">
+        <div class="feature-item">
+          🎧
+          <h3>Design</h3>
+          <p>We create stylish and comfortable headphones for all users.</p>
+        </div>
+        <div class="feature-item">
+          🔊
+          <h3>Sound</h3>
+          <p>Pure, crisp, and balanced sound for any music lover.</p>
+        </div>
+        <div class="feature-item">
+          ⚡
+          <h3>Technology</h3>
+          <p>Noise cancellation, fast pairing, and long-lasting battery life.</p>
+        </div>
+        <div class="feature-item">
+          🌍
+          <h3>Global Reach</h3>
+          <p>Available in over 75 countries worldwide.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- OUR RESULTS -->
-    <section id="our-results" class="section our-results">
-      <div class="container">
-        <h2>Our results</h2>
-        <p class="intro">Numbers that show our dedication to sound excellence.</p>
-
-        <div class="results-grid">
-          <div class="pentagon spin">
-            <span>5K+</span>
-            <p>Stores</p>
-          </div>
-          <div class="pentagon spin">
-            <span>1M+</span>
-            <p>Units Sold</p>
-          </div>
-          <div class="pentagon spin">
-            <span>98%</span>
-            <p>Satisfaction</p>
-          </div>
-          <div class="pentagon spin">
-            <span>24/7</span>
-            <p>Support</p>
-          </div>
+  <!-- ===== OUR RESULTS ===== -->
+  <section class="our-results">
+    <div class="container">
+      <h2>Our results speak for themselves</h2>
+      <div class="results">
+        <div class="result-card">
+          <div class="pentagon"></div>
+          <h3>+2M</h3>
+          <p>Products Sold</p>
+        </div>
+        <div class="result-card">
+          <div class="pentagon"></div>
+          <h3>98%</h3>
+          <p>Customer Satisfaction</p>
+        </div>
+        <div class="result-card">
+          <div class="pentagon"></div>
+          <h3>75+</h3>
+          <p>Countries Reached</p>
+        </div>
+        <div class="result-card">
+          <div class="pentagon"></div>
+          <h3>24/7</h3>
+          <p>Support</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section contact">
-      <div class="container">
-        <h2>Contact Us</h2>
-        <p>We’d love to hear from you. Let’s create amazing sound together!</p>
-      </div>
-    </section>
-  </main>
+  <!-- ===== CONTACT ===== -->
+  <section class="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Your Message"></textarea>
+        <button class="btn">Send</button>
+      </form>
+    </div>
+  </section>
 
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container">
-      <p>© 2025 Headphones | Built with ❤️ by Kelvin</p>
+      <p>© Headphones 2025. All rights reserved.</p>
     </div>
   </footer>
+
 </body>
 </html>
