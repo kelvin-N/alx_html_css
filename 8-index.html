@@ -1,40 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Headphones Landing Page</title>
-  <link rel="stylesheet" href="8-styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Headphones | Responsive Menu</title>
+  <link rel="stylesheet" href="8-styles.css" />
 </head>
 <body>
+  <!-- ===== HEADER ===== -->
   <header class="header">
     <div class="container">
-      <div class="logo">Headphones</div>
-      <nav class="nav" id="nav-menu">
-        <ul>
-          <li><a href="#what-we-do">What We Do</a></li>
-          <li><a href="#results">Our Results</a></li>
-          <li><a href="#contact">Contact Us</a></li>
-        </ul>
-      </nav>
+      <h1 class="logo">Headphones</h1>
+
+      <!-- Hamburger Icon -->
       <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
         <span></span>
       </div>
+
+      <!-- Navigation Menu -->
+      <nav class="nav-links" id="nav-links">
+        <a href="#what-we-do">What we do</a>
+        <a href="#our-results">Our results</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="hero">
+      <h2>Feel the Beat Everywhere</h2>
+      <p>Experience premium sound with Headphones.</p>
+      <button class="btn">CALL TO ACTION</button>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <h1>Feel the Sound</h1>
-      <p>Experience music like never before with the best quality headphones.</p>
-      <button class="btn">Learn More</button>
-    </section>
-  </main>
+  <!-- ===== WHAT WE DO ===== -->
+  <section id="what-we-do" class="what-we-do">
+    <div class="container">
+      <h2>What we do...</h2>
+      <div class="features">
+        <div class="feature-item">🎧 <h3>Design</h3> <p>Modern & ergonomic headphones.</p></div>
+        <div class="feature-item">🔊 <h3>Sound</h3> <p>Balanced and clear sound experience.</p></div>
+        <div class="feature-item">⚡ <h3>Tech</h3> <p>Fast charging and long battery life.</p></div>
+        <div class="feature-item">🌍 <h3>Global</h3> <p>Available in 75+ countries.</p></div>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 Headphones. All rights reserved.</p>
+  <!-- ===== OUR RESULTS ===== -->
+  <section id="our-results" class="our-results">
+    <div class="container">
+      <h2>Our results speak for themselves</h2>
+      <div class="results">
+        <div class="result-card">
+          <div class="pentagon"></div>
+          <h3>+2M</h3>
+          <p>Units Sold</p>
+        </div>
+        <div class="result-card">
+          <div class="pentagon"></div>
+          <h3>98%</h3>
+          <p>Satisfaction</p>
+        </div>
+        <div class="result-card">
+          <div class="pentagon"></div>
+          <h3>75+</h3>
+          <p>Countries</p>
+        </div>
+        <div class="result-card">
+          <div class="pentagon"></div>
+          <h3>24/7</h3>
+          <p>Support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message"></textarea>
+        <button class="btn">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© Headphones 2025. All rights reserved.</p>
+    </div>
   </footer>
 
   <script src="8-script.js"></script>
