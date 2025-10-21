@@ -1,100 +1,38 @@
-/* RESET CSS */
+/* ========== RESET ========== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* VARIABLES */
+/* ========== VARIABLES ========== */
 :root {
-  --main-color: #FF6565;
+  --main-color: #ff6565;
   --text-color: #fff;
-  --bg-color: #1c1c1c;
-  --max-width: 1000px;
   --font-family: 'Source Sans Pro', sans-serif;
+  --max-width: 1000px;
 }
 
-/* GENERAL STYLES */
+/* ========== GENERAL STYLES ========== */
 body {
   font-family: var(--font-family);
-  background-color: var(--bg-color);
   color: var(--text-color);
-  line-height: 1.6;
+  background: #000;
 }
 
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 20px;
-}
-/* NAVBAR */
-.header {
-  background: url("headphones_hero_1.jpg") no-repeat center center/cover;
+/* ========== HEADER / HERO SECTION ========== */
+.hero {
+  background: url("images/headphones_hero_1.jpg") no-repeat center center/cover;
   height: 100vh;
   display: flex;
   align-items: center;
   text-align: center;
 }
-/* WHAT WE DO SECTION */
-.what-we-do {
-  background-color: #fff;
-  color: #333;
-  padding: 80px 20px;
-  text-align: center;
-}
 
-.what-we-do h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
-  color: #111;
-}
-
-.what-we-do .intro-text {
-  max-width: 700px;
-  margin: 0 auto 50px;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #555;
-}
-
-/* SERVICE CARDS */
-.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 40px;
-}
-
-.service {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.service .icon {
-  font-size: 60px;
-  color: #FF6565;
-  margin-bottom: 15px;
-}
-
-.service h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.service p {
-  color: #777;
-  font-size: 16px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 480px) {
-  .what-we-do h2 {
-    font-size: 28px;
-  }
-  .what-we-do .intro-text {
-    font-size: 16px;
-  }
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 .navbar {
@@ -105,7 +43,7 @@ body {
 }
 
 .logo {
-  width: 150px;
+  width: 160px;
 }
 
 .nav-links {
@@ -115,8 +53,8 @@ body {
 }
 
 .nav-links a {
-  text-decoration: none;
   color: var(--text-color);
+  text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
 }
@@ -126,32 +64,119 @@ body {
   color: var(--main-color);
 }
 
-/* HERO SECTION */
-.hero {
-  margin-top: 120px;
+.hero-content {
+  margin-top: 180px;
 }
 
-.hero h1 {
-  font-size: 48px;
+.hero-content h1 {
+  font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
-.hero p {
-  font-size: 18px;
+.hero-content p {
+  font-size: 1.2rem;
   margin-bottom: 30px;
 }
 
-.cta-btn {
+.cta {
   background-color: var(--main-color);
-  color: white;
   border: none;
-  padding: 12px 25px;
-  border-radius: 25px;
+  color: #fff;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
+  border-radius: 30px;
   transition: opacity 0.3s ease;
 }
 
-.cta-btn:hover,
-.cta-btn:active {
+.cta:hover,
+.cta:active {
   opacity: 0.9;
+}
+
+/* ========== WHAT WE DO SECTION ========== */
+.what-we-do {
+  background: #fff;
+  color: #333;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.what-we-do h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.what-we-do p {
+  font-size: 1.1rem;
+  margin-bottom: 60px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Feature grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature span {
+  font-size: 4rem;
+  color: var(--main-color);
+  margin-bottom: 20px;
+}
+
+.feature h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media screen and (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .hero-content {
+    margin-top: 120px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .what-we-do {
+    padding: 60px 10px;
+  }
+
+  .feature span {
+    font-size: 3rem;
+  }
 }
