@@ -1,182 +1,329 @@
 /* 6-styles.css
-   Our Results: CSS-drawn pentagons (no image files).
-   Uses clip-path polygon to draw pentagon shapes,
-   and centers content with flexbox.
+   Our Results replaced with CSS pentagons
+   - No image files used
+   - Responsive (mobile collapse ≤480px)
+   - Hover / active interactions included
 */
 
-/* Basic reset + variables */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-:root{
-  --bg: #ffffff;
-  --page-bg: #f7f8fa;
-  --text: #071629;
-  --accent: #FF6565;
-  --muted: #667085;
+/* -------------------------
+   Reset & variables
+   ------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0f1720;
+  --card-bg: #071629;
+  --surface: #0b1a26;
+  --accent: #ff6565;       /* links hover color from spec */
+  --accent2: #ff9a65;
+  --accent3: #65d1ff;
+  --muted: #98a0a6;
   --max-width: 1000px;
-  --font-sans: "Source Sans 3", "Source Sans Pro", Arial, sans-serif;
+  --gap: 28px;
+  --pentagon-size: 180px; /* base size, scales on small screens */
+  --pentagon-border: 6px;
+  --transition: 250ms ease;
+  --btn-hover-opacity: 0.9;
+  --link-hover-color: #FF6565;
+  --content-padding: 40px;
+  --mobile-break: 480px;
+  --font-family: "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-body{
-  font-family: var(--font-sans);
-  background: var(--page-bg);
-  color: var(--text);
-  line-height: 1.5;
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: #fff;
+  font-family: var(--font-family);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 1.4;
 }
 
-/* GENERAL LAYOUT */
-.container{
+/* -------------------------
+   Layout utilities
+   ------------------------- */
+.container {
+  width: 90%;
   max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.site-header {
-  background: transparent;
+  margin-left: auto;
+  margin-right: auto;
   padding: 20px 0;
 }
-.site-header .container{ display:flex; justify-content:space-between; align-items:center; }
-.logo { font-weight:700; letter-spacing:0.5px; }
 
-.nav a{
-  color: var(--text);
-  text-decoration:none;
-  margin-left:18px;
-  font-weight:600;
-  transition: color .15s ease;
-}
-.nav a:hover, .nav a:active{ color: var(--accent); }
-
-/* HERO */
-.hero{
-  padding: 60px 0;
-  text-align:center;
-  background: linear-gradient(180deg, rgba(255,101,101,0.06), transparent 40%);
-}
-.hero h1{ font-size:32px; margin-bottom:8px; }
-.hero p{ color:var(--muted); }
-
-/* SECTION BASE */
-.section{
-  padding: 60px 0;
-  background: var(--bg);
+h1, h2, h3 {
+  line-height: 1.1;
 }
 
-/* OUR RESULTS SECTION */
-.our-results .intro{
-  max-width:720px;
-  margin: 0 auto 36px;
+.lead {
   color: var(--muted);
-  text-align:center;
-  font-size:16px;
+  max-width: 700px;
+  margin: 8px auto 28px;
+  text-align: center;
 }
 
-/* Grid for the result cards */
-.results-grid{
+/* -------------------------
+   Header / hero (minimal)
+   ------------------------- */
+.site-header {
+  padding: 28px 0 56px;
+  background: linear-gradient(180deg, rgba(10,14,18,0.9), rgba(6,10,14,0.75));
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.main-nav a {
+  color: #cfe6f6;
+  text-decoration: none;
+  margin-left: 18px;
+  font-weight: 600;
+  transition: color var(--transition);
+}
+
+.main-nav a:hover,
+.main-nav a:active {
+  color: var(--link-hover-color);
+}
+
+/* hero CTA */
+.hero {
+  text-align: center;
+  padding: 48px 0 16px;
+}
+
+.btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 180ms ease, opacity 160ms linear;
+}
+
+.btn:hover,
+.btn:active {
+  opacity: var(--btn-hover-opacity);
+  transform: translateY(-2px);
+}
+
+/* -------------------------
+   What we do (brief)
+   ------------------------- */
+.what-we-do {
+  padding: 36px 0 22px;
+  text-align: center;
+}
+
+/* -------------------------
+   OUR RESULTS — pentagons
+   ------------------------- */
+.our-results {
+  padding: 60px 0;
+  background: linear-gradient(180deg, rgba(6,10,14,0.4), rgba(4,6,8,0.4));
+  /* no background image used */
+}
+
+/* grid wrapper */
+.results-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 28px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
   align-items: start;
-  justify-items: center;
   margin-top: 20px;
 }
 
-/* Each result wrapper (keeps label spacing) */
-.result{ width:100%; display:flex; justify-content:center; }
+/* each result cell */
+.result-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  padding: 4px;
+  transition: transform var(--transition), filter var(--transition);
+}
 
-/* PENTAGON - core shape using clip-path */
-.pentagon{
-  width: 140px;
-  height: 140px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+/* hover effect: lift the whole item */
+.result-item:hover {
+  transform: translateY(-8px);
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.6));
+}
+
+/* pentagon shape container: clickable visual */
+.pentagon {
+  width: var(--pentagon-size);
+  height: var(--pentagon-size);
+  /* pentagon via clip-path: 5 points (clockwise) */
   clip-path: polygon(
-    50% 0%,
-    95% 35%,
-    77% 100%,
-    23% 100%,
-    5% 35%
+    50% 0%,   /* top center */
+    95% 35%,  /* top-right */
+    78% 90%,  /* bottom-right */
+    22% 90%,  /* bottom-left */
+    5% 35%    /* top-left */
   );
-  /* soft shadow / subtle depth */
-  box-shadow: 0 8px 20px rgba(7,22,41,0.08);
-  transition: transform .25s ease, box-shadow .25s ease;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
   position: relative;
-  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition), background var(--transition);
+  border: var(--pentagon-border) solid rgba(255,255,255,0.06);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6) inset;
 }
 
-/* Inner panel so text sits nicely centered and readable */
-.pentagon-inner{
-  width: 86%;
-  height: 86%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0));
-  text-align:center;
-  color: white;
-  padding: 6px;
-  border-radius: 6px;
-}
-
-/* Values (big number) and label */
-.value{
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom:6px;
-}
-.label{
-  font-size: 13px;
-  color: rgba(255,255,255,0.92);
-  font-weight:600;
-  letter-spacing:0.3px;
-}
-
-/* Individual accent colors (keeps variety) */
-.pentagon-1{ background: linear-gradient(180deg, #FF8A8A 0%, #FF6565 100%); }
-.pentagon-2{ background: linear-gradient(180deg, #8AE3FF 0%, #3ECFF0 100%); color:#071629; }
-.pentagon-3{ background: linear-gradient(180deg, #9AFFC3 0%, #4BE08F 100%); color:#071629; }
-.pentagon-4{ background: linear-gradient(180deg, #FFD58A 0%, #FFB54D 100%); color:#071629; }
-.pentagon-5{ background: linear-gradient(180deg, #C58AFF 0%, #8F5BFF 100%); }
-
-/* Slight hover lift for interactivity */
-.pentagon:hover{
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 18px 30px rgba(7,22,41,0.14);
-}
-
-/* Provide a subtle border/outline via pseudo-element (keeps pentagon crisp) */
-.pentagon::after{
+/* inner colored border using pseudo-element */
+.pentagon::before {
   content: "";
-  position:absolute;
-  inset: 0;
-  clip-path: inherit;
-  border-radius: 6px;
-  pointer-events:none;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+  position: absolute;
+  inset: calc(var(--pentagon-border) * 0.5);
+  clip-path: inherit; /* reuse pentagon shape */
+  background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  z-index: 0;
+  border-radius: 2px;
 }
 
-/* RESPONSIVE — adapt to smaller screens:
-   collapse grid and scale pentagons down */
-@media (max-width: 980px){
-  .results-grid{ grid-template-columns: repeat(3, 1fr); gap: 20px; }
+/* accent variations */
+.pentagon--accent {
+  background: linear-gradient(135deg, rgba(255,101,101,0.12), rgba(255,101,101,0.06));
+  border-color: rgba(255,101,101,0.25);
+}
+.pentagon--accent2 {
+  background: linear-gradient(135deg, rgba(255,154,101,0.12), rgba(255,154,101,0.04));
+  border-color: rgba(255,154,101,0.22);
+}
+.pentagon--accent3 {
+  background: linear-gradient(135deg, rgba(101,209,255,0.12), rgba(101,209,255,0.04));
+  border-color: rgba(101,209,255,0.22);
 }
 
-@media (max-width: 640px){
-  .results-grid{ grid-template-columns: repeat(2, 1fr); gap: 18px; }
-  .pentagon{ width:120px; height:120px; }
-  .value{ font-size:20px; }
+/* small decorative inner dot (center) */
+.pentagon::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+  z-index: 1;
 }
 
-@media (max-width: 480px){
-  .results-grid{ grid-template-columns: 1fr; gap: 16px; }
-  .pentagon{ width: 100px; height:100px; }
-  .hero h1{ font-size:22px; }
-  .value{ font-size:18px; }
-  .label{ font-size:12px; }
-  .section{ padding: 36px 0; }
+/* content overlay (numbers & labels) */
+.result-content {
+  margin-top: 8px;
+  color: #e6f7ff;
+  z-index: 2;
+  transform: translateY(-26px); /* visually tuck into pentagon */
+  text-align: center;
+  width: calc(var(--pentagon-size) * 0.9);
+  pointer-events: none; /* keep pets non-interactive */
 }
 
-/* Small tweak: center footer container */
-.site-footer{ background:transparent; padding:30px 0; text-align:center; color:var(--muted); }
+.result-content .value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.6px;
+}
+
+.result-content .label {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+/* Make the number appear visually inside the pentagon on larger screens:
+   by absolutely positioning the content over the pentagon. */
+@media (min-width: 640px) {
+  .result-item {
+    align-items: center;
+  }
+  .result-content {
+    transform: translateY(-56px);
+    text-align: center;
+  }
+}
+
+/* Slight hover emphasis on pentagon */
+.result-item:hover .pentagon {
+  transform: scale(1.05) rotate(-2deg);
+  background-position: center;
+}
+
+/* -------------------------
+   Responsive adjustments
+   ------------------------- */
+@media (max-width: 1000px) {
+  .results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  :root {
+    --pentagon-size: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .results-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  :root {
+    --pentagon-size: 120px;
+    --pentagon-border: 4px;
+  }
+  .result-content {
+    transform: translateY(-34px);
+  }
+  .lead {
+    padding: 0 8px;
+  }
+}
+
+/* -------------------------
+   Footer & small visuals
+   ------------------------- */
+.contact-cta {
+  padding: 36px 0;
+  text-align: center;
+}
+
+.site-footer {
+  padding: 24px 0;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+/* -------------------------
+   Accessibility helpers
+   ------------------------- */
+.result-item[role="listitem"] {
+  outline: none;
+}
+
+/* Links hover color required by spec */
+a:hover,
+a:active {
+  color: var(--link-hover-color);
+}
+
+/* All buttons hover/active spec */
+button:hover,
+button:active {
+  opacity: var(--btn-hover-opacity);
+}
